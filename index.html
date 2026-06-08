@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akıllı Duygu Günlüğü</title>
+    <!-- CSS dosyamızı buraya bağlıyoruz -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js kütüphanesini grafik için ekliyoruz -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- GİRİŞ/KAYIT PENCERESİ (MODAL) -->
+    <div id="modal-backdrop" class="hidden">
+        <div id="auth-modal" class="card">
+            <!-- JavaScript bu alanı dolduracak -->
+        </div>
+    </div>
+
+    <!-- ÜST NAVİGASYON BARI -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Akıllı Günlüğüm</a>
+            <div id="auth-links">
+                <!-- JavaScript bu alanı dolduracak (Giriş Yap butonu veya kullanıcı bilgisi) -->
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- KARŞILAMA BÖLÜMÜ (Giriş yapılmadığında görünür) -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Duygularını Anla, Kendini Keşfet.</h1>
+                    <p>Günlük anlarını kaydet, yapay zeka senin için analiz etsin. Duygusal desenlerini ortaya çıkar ve zihinsel farkındalığını artır.</p>
+                    <button id="start-now-btn" class="btn btn-primary">Hemen Ücretsiz Başla</button>
+                </div>
+                <div class="hero-image">
+                    <!-- Projemizin ruhunu yansıtan bir görsel -->
+                    <img src="https://storage.googleapis.com/gemini-prod/images/project_idea.jpg" alt="Yapay zeka ve insan beyni illüstrasyonu">
+                </div>
+            </div>
+        </section>
+
+        <!-- ANA UYGULAMA BÖLÜMÜ (Giriş yapıldığında görünür) -->
+        <section id="app-container" class="container hidden">
+            <div class="app-main">
+                <div class="card">
+                    <h3>Bugün Nasıl Hissediyorsun?</h3>
+                    <textarea id="duygu-metni" class="input-field" placeholder="Bugün yaşadıklarını, hissettiklerini veya aklından geçenleri yaz..."></textarea>
+                    <button id="kaydet-butonu" class="btn btn-primary">Kaydet ve Analiz Et</button>
+                    
+                    <div class="sonuc-gosterge">
+                        <p><strong>Son Analiz Sonucu:</strong> <span id="sonuc-etiketi">--</span> | <strong>Skor:</strong> <span id="sonuc-skor">--</span></p>
+                    </div>
+                </div>
+                <div class="card chart-card">
+                     <h3>Duygu Değişim Grafiği</h3>
+                     <div class="chart-container">
+                        <canvas id="duyguGrafıgı"></canvas>
+                     </div>
+                </div>
+                <div class="card">
+                    <h3>Geçmiş Kayıtların</h3>
+                    <ul id="kayit-listesi">
+                        <li>Henüz bir kayıt yok.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Firebase ve kendi Script dosyalarımız -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+      // Bu kısım senin kendi proje bilgilerinle dolu olmalı
+      const firebaseConfig = {
+        apiKey: "AIzaSyDZEQjCzDVNmhvO8pMI325_AmUZ7QXwMwg",
+        authDomain: "duygu-gunlugu-projesi.firebaseapp.com",
+        projectId: "duygu-gunlugu-projesi",
+        storageBucket: "duygu-gunlugu-projesi.appspot.com",
+        messagingSenderId: "200698709607",
+        appId: "1:200698709607:web:c24b415c66cc61e49cf6c2"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

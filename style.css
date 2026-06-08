@@ -1,0 +1,233 @@
+/* Google Fonts'tan modern ve okunaklı bir font ekliyoruz */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ---- RENK VE STİL DEĞİŞKENLERİ ---- */
+:root {
+    --primary-color: #4A90E2; /* Canlı, güven veren bir mavi */
+    --background-color: #F7F9FC; /* Çok açık, neredeyse beyaz bir gri */
+    --card-background: #FFFFFF; /* Kartlar için saf beyaz */
+    --text-color: #5A6E83; /* Yumuşak, koyu gri */
+    --heading-color: #2C3E50; /* Başlıklar için daha koyu bir gri/siyah */
+    --border-color: #EAEFF4; /* Çok hafif bir kenarlık rengi */
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Yumuşak, modern gölge */
+    --border-radius: 12px;
+}
+
+/* ---- GENEL SAYFA AYARLARI ---- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ---- NAVİGASYON BARI ---- */
+.navbar {
+    background-color: var(--card-background);
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+#auth-links .btn, .user-profile .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ---- GENEL BİLEŞENLER ---- */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+.input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* ---- KARŞILAMA BÖLÜMÜ (HERO) ---- */
+.hero {
+    padding: 5rem 0;
+    text-align: center;
+}
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-image {
+    margin-top: 3rem;
+}
+.hero-image img {
+    max-width: 100%;
+    max-height: 350px;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+/* ---- ANA UYGULAMA BÖLÜMÜ ---- */
+#app-container {
+    padding-top: 3rem;
+}
+.app-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.card {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+.card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+.chart-card {
+    grid-column: 1 / -1; /* Grafik kartı tam genişlik kaplasın */
+}
+textarea.input-field {
+    min-height: 120px;
+    resize: vertical;
+}
+#kayit-listesi {
+    list-style: none;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+#kayit-listesi li {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+#kayit-listesi li:last-child {
+    border-bottom: none;
+}
+.chart-container {
+    position: relative;
+    height: 300px;
+}
+.sonuc-gosterge {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #F7F9FC;
+    border-radius: 8px;
+}
+
+
+/* ---- MODAL (Giriş/Kayıt Penceresi) ---- */
+#modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+#auth-modal .card {
+    width: 90%;
+    max-width: 450px;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+#auth-modal p { text-align: center; }
+#auth-modal a { color: var(--primary-color); cursor: pointer; text-decoration: none; }
+
+/* ---- MOBİL UYUMLULUK ---- */
+@media (max-width: 900px) {
+    .app-main {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+Flask==3.0.3
+flask-cors==4.0.1
+firebase-admin==6.5.0
+transformers==4.44.2
+torch==2.4.1
